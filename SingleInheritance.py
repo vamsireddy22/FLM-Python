@@ -1,61 +1,44 @@
-''' 
-    Properties of Parent:
-        Name,age,address
-    Properties of student:
-        Fname, name, age, Fage, Address, Study, StudPhno, College
-'''
+# Single Inheritance
 
-class Father:
-    def __init__(self, Fname, Fage, Address):
-        self.Fname = Fname
-        self.Fage = Fage
-        self.Address = Address
-        print("Object Created at Father Class")
-
-    def PrintFatherDetails(self):
-        print(self.Fname,self.Fage,self.Address)
-        return
-
-
-# Inheriting the parent class into Student class
-class Student(Father):
-    def __init__(self, Name, age, Address,Study, Studphno,College,Fname,Fage):
-        super().__init__(Fname, Fage, Address)
-        self.Name = Name
-        self.age = age
-        self.Study = Study
-        self.Studphno = Studphno
-        self.College = College
-        print("Object created at Student class")
+class Person:
+    def __init__(self,name,mobile,address):
+        print("I am inside the person contructor")
+        self.name = name
+        self.mobile = mobile
+        self.address = address
     
-    def PrintStudentDetails(self):
-        print(self.Name,self.age,self.Study,self.College,self.Studphno)
-        super().PrintFatherDetails()
-        return
+    def printDetailsOfPerson(self):
+        print("I am inisde the person class and printing the person details")
+        print(self.name)
+        print(self.mobile)
+        print(self.address)
 
+class Employee(Person):
+    def __init__(self,name,mobile,address,eid,company,sal):
+        print("I am in Employee Constructor")
+        Person.__init__(self,name,mobile,address)
+        self.eid = eid
+        self.company = company
+        self.sal = sal
+        print("I am exiting the Employee Constructor")
+    
+    def PrintEmployeeDetails(self):
+        print("I am printing details of Employee")
+        print(self.name)
+        print(self.mobile)
+        print(self.address)
+        print(self.eid)
+        print(self.company)
+        print(self.sal)
+        
 
+    
 
-print("Creating S1")
-s1 = Student("Vamsi",21,"TPT","CSE",1241334,"SVU","Vamsi-Dad",45)
+emp = Employee("Vamsi",124324,"TPT","e007441","Google",100000)
+#emp.PrintEmployeeDetails()
+emp.printDetailsOfPerson()
 
-print("Creating S2")
-s2 = Student("Sai",23,"KRNL","ECE",46464646,"SVU","Sai-Dad",45)
-
-# Printing the student details
-
-print("Printing the s1")
-s1.PrintStudentDetails()
-#s1.PrintFatherDetails()
-
-
-print("printing the s2")
-s2.PrintStudentDetails()
-#s2.PrintFatherDetails()
-
-
-
-
-
-
+# person1 = Person("Vamsi",12342325,"TPT")
+# person1.printDetailsOfPerson()
 
 
