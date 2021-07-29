@@ -1,36 +1,59 @@
 class A:
-    def __init__(self,Aa,Ab,Ac):
-        self.Aa = Aa
-        self.Ab = Ab
-        self.Ac = Ac
-    
+    def __init__(self,a,b,c):
+        print("Class A Constructor")
+        self.a = a
+        self.b = b
+        self.c = c
+        print("Exiting Class A")
+
     def PrintA(self):
-        print(self.Aa,self.Ab,self.Ac)
+        print(self.a)
+        print(self.b)
+        print(self.c)
+    
 
 class B:
-    def __init__(self,Ba,Bb,Bc):
-        self.Ba = Ba
-        self.Bb = Bb
-        self.Bc = Bc
+    def __init__(self,d,e,f):
+        print("Class B Constructor")
+        # self.a = a
+        # self.b = b
+        # self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+        print("Exiting Class B")
+    
+    def printB(self):
+        # print(self.a)
+        # print(self.b)
+        # print(self.c)
+        print(self.d)
+        print(self.e)
+        print(self.f)
 
-    def PrintB(self):
-        print(self.Ba,self.Bb,self.Bc)
 
+class C(B,A):
+    def __init__(self,a,b,c,d,e,f,g,h,i):
+        print("Class C Constructor")
+        A.__init__(self,a,b,c)
+        B.__init__(self,d,e,f)
+        self.g = g
+        self.h = h
+        self.i = i
+        print("Exiting Class C")
+    
+    def printC(self):
 
-class C(A,B):
-    def __init__(self,Aa,Ab,Ac,Ba,Bb,Bc,Ca,Cb,Cc):
-        A.__init__(self,Aa,Ab,Ac)
-        B.__init__(self,Ba,Bb,Bc)
-        self.Ca = Ca
-        self.Cb = Cb
-        self.Cc = Cc
-
-    def PrintC(self):
+        # while using super() ytou don't need to pass self as  default arguement
         A.PrintA(self)
-        B.PrintB(self)
-        print(self.Ca,self.Cb,self.Cc)
+        B.printB(self)
+        #super().printA()
+        print(self.g)
+        print(self.h)
+        print(self.i)
 
-objC = C(1,2,3,4,5,6,7,8,9)
-objC.PrintC()
 
+objC = C("vamsi","reddy","sai","sumanth","Tejaswini","Soujanya","Supriya","sathish","Roja")
+objC.printC()
 
+        
